@@ -13,11 +13,16 @@ class PosRegister extends Component
     // Cart Properties
     public $cart = [];
     public $search = '';
-    public $taxRate = 0.10; // 10% tax example
+    public $taxRate;
 
     // Payment Properties
     public $paymentMethod = 'Cash';
     public $tenderedAmount = 0.00;
+
+    public function mount()
+    {
+        $this->taxRate = config('app.default_tax_rate', 0);
+    }
 
     // Computed Properties (Livewire automatically recalculates these)
 

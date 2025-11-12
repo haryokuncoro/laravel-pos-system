@@ -185,4 +185,8 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+    
+    'default_tax_rate' => env('DEFAULT_TAX_RATE', 0),
+    'default_discount' => env('DEFAULT_DISCOUNT', 0),
+
 ];
