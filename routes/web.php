@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Livewire\PosRegister;
+use App\Livewire\SaleReport;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -32,12 +34,6 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::middleware(['auth'])->group(function () {
-    // This defines all 7 CRUD routes (index, create, store, show, edit, update, destroy)
-    Route::resource('products', ProductController::class);
-    // You can also add your dashboard route here
-    // Route::view('/dashboard', 'dashboard')->name('dashboard'); 
-});
 
 Route::middleware(['auth'])->group(function () {
     // ... existing resource route for products
@@ -46,4 +42,7 @@ Route::middleware(['auth'])->group(function () {
     
     // NEW POS Register Route
     Route::get('/register', PosRegister::class)->name('pos.register'); // <--- ADD THIS LINE
+    // Sales Report
+    Route::get('/sales-report', SaleReport::class)->name('sales.report');
 });
+
