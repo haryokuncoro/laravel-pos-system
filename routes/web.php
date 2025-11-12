@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Livewire\PosRegister;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,4 +37,13 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('products', ProductController::class);
     // You can also add your dashboard route here
     // Route::view('/dashboard', 'dashboard')->name('dashboard'); 
+});
+
+Route::middleware(['auth'])->group(function () {
+    // ... existing resource route for products
+
+    Route::resource('products', ProductController::class);
+    
+    // NEW POS Register Route
+    Route::get('/register', PosRegister::class)->name('pos.register'); // <--- ADD THIS LINE
 });
