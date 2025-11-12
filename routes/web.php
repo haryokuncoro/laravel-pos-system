@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Livewire\PosRegister;
 use App\Livewire\SaleReport;
+use App\Http\Controllers\SaleController;
 
 
 /*
@@ -44,5 +45,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/register', PosRegister::class)->name('pos.register'); // <--- ADD THIS LINE
     // Sales Report
     Route::get('/sales-report', SaleReport::class)->name('sales.report');
+    Route::get('/sales/{sale}/invoice', [SaleController::class, 'preview'])->name('invoice.preview');
+    Route::get('/sales/{sale}/invoice/download', [SaleController::class, 'download'])->name('invoice.download');
+
 });
 

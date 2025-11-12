@@ -14,6 +14,7 @@
                     <th class="border px-4 py-2">Total</th>
                     <th class="border px-4 py-2">Tendered</th>
                     <th class="border px-4 py-2">Payment Method</th>
+                    <th class="border px-4 py-2">Invoice</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,6 +38,14 @@
                         <td class="border px-4 py-2">${{ number_format($sale->total_amount, 2) }}</td>
                         <td class="border px-4 py-2">${{ number_format($sale->tendered_amount, 2) }}</td>
                         <td class="border px-4 py-2">{{ $sale->payment_method }}</td>
+                        <td class="border px-4 py-2 text-center">
+                            <a href="{{ route('invoice.preview', $sale) }}" target="_blank"
+                            class="text-blue-600 hover:underline">🖨️ View</a>
+                            |
+                            <a href="{{ route('invoice.download', $sale) }}"
+                            class="text-green-600 hover:underline">⬇️ PDF</a>
+                        </td>
+
                     </tr>
                 @empty
                     <tr>

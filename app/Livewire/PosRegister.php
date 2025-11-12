@@ -141,6 +141,7 @@ class PosRegister extends Component
                 SaleItem::create([
                     'sale_id' => $sale->id,
                     'product_id' => $item['id'],
+                    'price' => $item['price'],
                     'quantity' => $item['qty'],
                     'unit_price' => $item['price'],
                 ]);
