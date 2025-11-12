@@ -13,7 +13,7 @@
                     <th class="border px-4 py-2">Tax</th>
                     <th class="border px-4 py-2">Total</th>
                     <th class="border px-4 py-2">Tendered</th>
-                    <th class="border px-4 py-2">Change Due</th>
+                    <th class="border px-4 py-2">Payment Method</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,10 +33,10 @@
                             </ul>
                         </td>
                         <td class="border px-4 py-2">${{ number_format($sale->subtotal, 2) }}</td>
-                        <td class="border px-4 py-2">${{ number_format($sale->tax, 2) }}</td>
-                        <td class="border px-4 py-2">${{ number_format($sale->total, 2) }}</td>
-                        <td class="border px-4 py-2">${{ number_format($sale->tendered, 2) }}</td>
-                        <td class="border px-4 py-2">${{ number_format($sale->change_due, 2) }}</td>
+                        <td class="border px-4 py-2">${{ number_format($sale->tax_amount, 2) }}</td>
+                        <td class="border px-4 py-2">${{ number_format($sale->total_amount, 2) }}</td>
+                        <td class="border px-4 py-2">${{ number_format($sale->tendered_amount, 2) }}</td>
+                        <td class="border px-4 py-2">{{ $sale->payment_method }}</td>
                     </tr>
                 @empty
                     <tr>
